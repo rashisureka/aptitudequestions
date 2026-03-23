@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aptitude Roulette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="setCategory('all', this)">All Topics</button>
+      <button class="nav-tab" onclick="setCategory('quant', this)">Quantitative</button>
+      <button class="nav-tab" onclick="setCategory('logical', this)">Logical</button>
+    </div>
+    <div class="brand">theleetcodegirl</div>
+  </nav>
+
+  <main>
+    <div class="left-panel">
+      <div class="big-title">
+        <div class="title-word t1">Aptitude</div>
+        <div class="title-word t2">Roulette</div>
+      </div>
+      <div class="steps">
+        <div class="step">1) Get a <em>random question</em></div>
+        <div class="step">2) Set <em class="em2">60 sec</em> timer</div>
+        <div class="step">3) Solve &amp; <em class="em3">crack it!!</em></div>
+      </div>
+      <div class="streak-wrap" id="streakWrap" style="opacity:0;">
+        🔥 <span id="streakNum">0</span> solved today
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="q-stage" id="qStage">
+
+        <div class="idle-block" id="idleBlock">
+          <div class="idle-emoji">🎲</div>
+          <div class="idle-msg">Your question will appear here</div>
+        </div>
+
+        <div class="live-block" id="liveBlock" style="display:none;">
+          <div class="prev-q" id="prevQ"></div>
+          <div class="divider-line"></div>
+          <div class="curr-q" id="currQ"></div>
+          <div class="divider-line"></div>
+          <div class="next-label" id="nextLabel">next question</div>
+        </div>
+
+      </div>
+
+      <div class="meta-strip" id="metaStrip" style="display:none;">
+        <span class="topic-tag" id="topicTag"></span>
+        <span class="company-tag" id="companyTag"></span>
+        <span class="diff-tag" id="diffTag"></span>
+      </div>
+
+      <div class="hint-box" id="hintBox" style="display:none;">
+        <span class="hint-label">💡 Hint —</span>
+        <span id="hintText"></span>
+      </div>
+
+      <div class="answer-box" id="answerBox" style="display:none;">
+        <span class="answer-label">✅ Answer —</span>
+        <span id="answerText"></span>
+      </div>
+
+      <div class="timer-row" id="timerRow" style="display:none;">
+        <svg class="timer-ring" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="20" fill="none" stroke="#e5ddd3" stroke-width="4"/>
+          <circle cx="24" cy="24" r="20" fill="none" stroke="#2d6a4f" stroke-width="4"
+            stroke-dasharray="125.6" stroke-dashoffset="0"
+            stroke-linecap="round" transform="rotate(-90 24 24)"
+            id="timerArc"/>
+        </svg>
+        <div class="timer-num" id="timerNum">60</div>
+        <div class="timer-label">seconds</div>
+      </div>
+    </div>
+  </main>
+
+  <div class="bottom-bar">
+    <button class="btn-spin" id="spinBtn" onclick="handleSpin()">Spin!</button>
+    <button class="btn-timer" id="timerBtn" onclick="toggleTimer()">Start Timer →</button>
+    <button class="btn-secondary" id="hintBtn" onclick="toggleHint()" style="display:none;">💡 Hint</button>
+    <button class="btn-secondary" id="ansBtn" onclick="toggleAnswer()" style="display:none;">See Answer</button>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
